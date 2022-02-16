@@ -78,6 +78,12 @@ refs.startBtn.addEventListener('click', () => {
 });
 
  
-function timerFace({days,hours,minutes, second}) {
-  refs.clockFace.textContent = '${days}:${hours}:${minutes}:${seconds}';
+function timerFace({days, hours, minutes, seconds }) {
+  refs.clockFace.textContent = 
+  `
+  Days : (${days}) --
+  hours : (${hours}) --
+  minutes : (${minutes}) --
+  seconds (${seconds})
+  `;
 }
