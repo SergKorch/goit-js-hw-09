@@ -6,7 +6,6 @@ const refs = {
   elInputDate: document.querySelector('input[type="text"]'),
   clockFace: document.querySelector('.timer'),
 };
-console.log(refs.clockFace);
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -39,7 +38,6 @@ return
       const currentTime = Date.now();
       const dataTime = currentTime - startTime;
       const timeForm = this.convertMs(dataTime);
-      console.log(timeForm);
       // timerFace(timeForm)
       this.onTick(timeForm)
     }, 1000);
