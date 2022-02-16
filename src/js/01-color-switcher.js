@@ -10,16 +10,14 @@ function backGrColorStart() {
   stopBg = setInterval(() => {
     backGr.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  startBtn.removeEventListener('click', backGrColorStart);
-  startBtn.disabled = 'true';
-  stopBtn.removeAttribute('disabled');
+  startBtn.setAttribute('disabled', true)
+  stopBtn.removeAttribute('disabled')
 }
 function backGrColorStop() {
   clearInterval(stopBg);
-  stopBtn.removeEventListener('click', backGrColorStop);
-  startBtn.removeAttribute('disabled');
-  stopBtn.disabled = 'true';
+  startBtn.removeAttribute('disabled')
+  stopBtn.setAttribute('disabled', true)
 }
-stopBtn.disabled = 'true';
+stopBtn.setAttribute('disabled', true);
 startBtn.addEventListener('click', backGrColorStart);
 stopBtn.addEventListener('click', backGrColorStop);
