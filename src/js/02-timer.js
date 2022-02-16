@@ -6,6 +6,7 @@ const refs = {
   elInputDate: document.querySelector('input[type="text"]'),
   clockFace: document.querySelector('.timer'),
 };
+let dateStarted;
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -13,6 +14,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+dateStarted=selectedDates[0];
   },
 };
 flatpickr(refs.elInputDate, options);
@@ -36,8 +38,13 @@ return
     this.isActive=true
     this.intervalId=setInterval(() => {
       const currentTime = Date.now();
-      const dataTime = currentTime - startTime;
+      const dataTime = dateStarted.getTime() - currentTime;
+      if(dataTime<=0){
+        console.log("Stop")
+        return;
+      }
       const timeForm = this.convertMs(dataTime);
+     console.log(timeForm)
       // timerFace(timeForm)
       this.onTick(timeForm)
     }, 1000);
