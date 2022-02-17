@@ -1,5 +1,8 @@
 import Notiflix from 'notiflix';
 
+const promise = new Promise((resolve, reject) => {
+  // Asynchronous operation
+});
 function createPromise(position, delay) {
     const shouldResolve = Math.random() > 0.3;
     if (shouldResolve) {
