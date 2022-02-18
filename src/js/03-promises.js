@@ -32,5 +32,4 @@ function createPromiseSubmit(event) {
       });
     delay = Number(delay) + Number(delayStep.value); //delayStep
   }
-
 }
