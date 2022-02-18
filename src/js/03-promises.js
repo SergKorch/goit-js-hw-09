@@ -1,14 +1,8 @@
 import Notiflix from 'notiflix';
 const firstDelay = document.querySelector('input[name="delay"]');
-console.log(firstDelay);
 const delayStep = document.querySelector('input[name="step"]');
-console.log(delayStep);
 const amount = document.querySelector('input[name="amount"]');
-console.log(amount);
-const button = document.querySelector('button[type="submit"]');
-console.log(button);
 const form = document.querySelector('.form');
-console.log(form);
 form.addEventListener('submit', createPromiseSubmit);
 
 function createPromise(position, delay) {
@@ -16,9 +10,9 @@ function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
-        Notiflix.Notify.success('Sol lucet omnibus');
+        Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);
       } else {
-        Notiflix.Notify.failure('Qui timide rogat docet negare');
+        Notiflix.Notify.failure(`Rejected promise ${position} in ${delay}ms`);
       }
     }, delay);
   });
@@ -29,7 +23,6 @@ function createPromiseSubmit(event) {
   let delay = firstDelay.value;
   for (let i = 1; i <= amount.value; i++) {
     position += 1;
-    console.log(position);
     createPromise(position, delay)
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -37,7 +30,7 @@ function createPromiseSubmit(event) {
       .catch(({ position, delay }) => {
         console.log(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    console.log(delay);
     delay = Number(delay) + Number(delayStep.value); //delayStep
   }
+
 }
